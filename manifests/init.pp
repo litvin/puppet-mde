@@ -42,7 +42,14 @@
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class mde {
 
+class mde (
+
+ Array[String] $package_name   = $::mde::params::package_name,
+ String $package_ensure = $::mde::params::package_ensure,
+
+) inherits ::mde::params {
+
+  include ::mde::install
 
 }
