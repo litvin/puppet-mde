@@ -50,12 +50,12 @@ class mde (
  Array[String] $package_name_local = $::mde::params::package_name_wget,
  String $package_ensure            = $::mde::params::package_ensure,
  String $domain_name               = $::mde::params::domain_name,
- String $host_ad_name               = $::mde::params::host_ad_name,
+ String $host_ad_name              = $::mde::params::host_ad_name,
 
 ) inherits ::mde::params {
 
-  include  mde::downloads
-  include  mde::install
-  include  mde::realm
+  class { '::mde::downloads': }
+  -> class { '::mde::install': }
+  -> class { '::mde::realm': }
 
 }
