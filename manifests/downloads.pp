@@ -6,8 +6,8 @@ class mde::downloads(
 	
         $package_name_downloads.each | $index_download, $value_download | {
         wget::fetch { "$value_download":
-                      source             => "$ftp_server_name/$value_download",
-                      destination        => "/tmp/$value_download",
+                      source             => "$ftp_server_name/$value_download.deb",
+                      destination        => "/tmp/$value_download.deb",
                       timeout            => 0,
                       verbose            => true,
                       nocheckcertificate => true,

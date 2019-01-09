@@ -4,17 +4,17 @@ class mde::install(
 	String $package_ensure             = $::mde::package_ensure,
 ){
 	$package_name.each | $index, $value | {
-        package { "$value":
+         package { "$value":
     	                ensure   => $package_ensure
-		}
+	  	 }
 	}
 	
 	$package_name_local.each | $index_local, $value_local | {
-        package { "$value_local":
-    		        ensure   => installed,
-                        provider => dpkg,
-                        source   => "/tmp/$value_local",
-                }
+         package { "$value_local":
+	           ensure   => installed,
+                   provider => dpkg,
+                   source   => "/tmp/$value_local.deb",
+                 }
 	}
 }
 
