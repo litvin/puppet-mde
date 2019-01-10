@@ -6,4 +6,13 @@ class mde::params {
         $ftp_server_name   = 'ftp://astra.am.local/install'
 	$run_script_link   = 'LinkAstraCE.sh'
 	$run_script_xdg    = 'link-desktop.desktop'
+
+  	$mount_username    = 'rc'
+	$mount_password    = ''
+  	$mount_domain      = 'am.local'
+
+  	$share_server_name = 'srv-01'
+  	$pub_name 	   = 'pub'
+  	$mount_dir         = 'mnt'
+
 }

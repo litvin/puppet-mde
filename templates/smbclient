@@ -1,0 +1,3 @@
+username=<%= @mount_username %>
+password=<%= @mount_password %>
+domain=<%= @mount_domain %>

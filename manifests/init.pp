@@ -51,11 +51,21 @@ class mde (
  String $package_ensure            = $::mde::params::package_ensure,
  String $run_script_link 	   = $::mde::params::run_script_link,
  String $run_script_xdg 	   = $::mde::params::run_script_xdg,
+ 
+ String $mount_username   	   = $mde::params::mount_username,
+ String $mount_password     	   = $role::workstation::topPassword,
+ String $mount_domain     	   = $mde::params::mount_domain,
+
+ String $share_server_name	   = $mde::params::share_server_name,
+ String $pub_name 	   	   = $mde::params::pub_name,
+ String $mount_dir        	   = $mde::params::mount_dir,
+ 
 
 ) inherits ::mde::params {
 
   class { '::mde::downloads': }
   -> class { '::mde::install': }
   -> class { '::mde::link': }
+  class { '::mde::mount': }
 
 }
