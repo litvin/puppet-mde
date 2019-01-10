@@ -1,0 +1,534 @@
+#!/bin/bash
+
+#astra create desktop links
+
+remmina_dir="$HOME/.local/share/remmina";
+desktop_dir="$HOME/Desktops/Desktop1";
+
+if [ -d "$remmina_dir" ]; then
+
+cd $desktop_dir
+
+#[ -f "./firefox.desktop" ] && rm ./firefox.desktop
+
+# link position
+
+cat > ./.directory << EOF
+type=Directory
+Icon=user-desktop
+X-FLY-IconContext=Places
+Categories=firefox.desktop;firefox-esr.desktop;nautilus.desktop;
+
+# ************ one column ****************
+
+[IconPosition::mytrash.desktop]
+X=0
+Y=0
+
+[IconPosition::mycomp.desktop]
+X=0
+Y=100
+
+[IconPosition::fly-help.desktop]
+X=0
+Y=200
+
+# ********** two column ***************
+
+[IconPosition::Ya_my.desktop]
+X=100
+Y=0
+
+[IconPosition::Ya_garant.desktop]
+X=100
+Y=100
+
+[IconPosition::Ya_consultant.desktop]
+X=100
+Y=200
+
+[IconPosition::Ya_CGP.desktop]
+X=100
+Y=300
+
+# ********** three column ***************
+
+[IconPosition::myofficemail.desktop]
+X=200
+Y=0
+
+[IconPosition::myoffice_table.desktop]
+X=200
+Y=100
+
+[IconPosition::myoffice_text.desktop]
+X=200
+Y=200
+
+[IconPosition::myoffice_presentetion_editor.desktop]
+X=200
+Y=300
+
+#[IconPosition::myoffice_Presentation.desktop]
+#X=200
+#Y=300
+
+# ********** four column ***************
+
+[IconPosition::Sputnik_myoffice.desktop]
+X=300
+Y=0
+
+[IconPosition::Sputnik_garant.desktop]
+X=300
+Y=100
+
+[IconPosition::Sputnik_consultant.desktop]
+X=300
+Y=200
+
+[IconPosition::Sputnik_CGP.desktop]
+X=300
+Y=300
+
+# ********** five  column ***************
+
+[IconPosition::share.desktop]
+X=400
+Y=0
+
+[IconPosition::remmina.desktop]
+X=400
+Y=100
+
+[IconPosition::1cestart.desktop]
+X=400
+Y=200
+EOF
+
+# create link
+
+cat > ./1cestart.desktop << EOF
+[Desktop Entry]
+Name=1C:Enterprise
+Type=Application
+Exec=/opt/1C/v8.3/x86_64/1cestart
+Actions=Config1;
+Icon=1cestart
+Terminal=false
+Categories=Office;Finance
+Version=1.0
+Name[ru_RU]=1С:Предприятие
+X-Fly-OriginFile=~/.local/share/applications/1cestart.desktop
+
+
+[Desktop Action Config1]
+Name=Информационная база (Демо)
+Exec=/opt/1C/v8.3/x86_64/1cestart ENTERPRISE /F"~/Документы/InfoBaseDemo"
+OnlyShowIn=Unity
+EOF
+
+cat > ./myofficemail.desktop << EOF
+[Desktop Entry]
+Name=Мой Офис Почта
+GenericName=Mail Client
+Type=Application
+Comment=Send and receive mail with MyOfficeMail
+Exec=sh -c "~/MyOfficeMail/myofficemail -profile ~/.EPS"
+Icon=~/MyOfficeMail/myofficemail.png
+Terminal=false
+MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto
+Categories=Application;Network;Email
+Encoding=UTF-8
+X-Fly-OriginFile=~/.local/share/applications/myofficemail.desktop
+EOF
+
+cat > myoffice_text.desktop << EOF
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Icon=myoffice-text
+Type=Application
+Categories=Office;WordProcessor;GTK;GNOME;Qt;
+Exec=myoffice-text %f
+MimeType=application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/vnd.oasis.opendocument.text;application/msword;application/vnd.ms-word;application/x-doc;application/x-extension-txt;text/plain;
+Name=MyOffice Text
+Name[ru]=МойОфис Текст
+Name[en]=MyOffice Text
+GenericName=Word Processor
+GenericName[ru]=Текстовый процессор
+GenericName[en]=Word Processor
+Comment=Create and edit text by using MyOffice Text.
+Comment[ru]=Создание и редактирование текста с помощью МойОфис Текст.
+StartupNotify=true
+X-GIO-NoFuse=true
+Keywords=Text;Document;OpenDocument Text;MyOffice Text;Microsoft Word;OpenOffice Writer;odt;doc;docx;
+InitialPreference=5
+Actions=NewDocument;
+EOF
+
+cat > myoffice_table.desktop << EOF
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Icon=myoffice-table
+Type=Application
+Categories=Office;Spreadsheet;Qt;
+Exec=myoffice-table %f
+MimeType=application/vnd.oasis.opendocument.spreadsheet;application/vnd.sun.xml.calc;application/msexcel;application/vnd.ms-excel;application/csv;application/excel;application/x-excel;application/x-msexcel;application/x-ms-excel;text/comma-separated-values;text/tab-separated-values;text/x-comma-separated-values;text/x-csv;text/csv;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
+Name=MyOffice Table
+Name[ru]=МойОфис Таблица
+Name[en]=MyOffice Table
+GenericName=Spreadsheet
+GenericName[ru]=Электронная таблица
+GenericName[en]=Spreadsheet
+Comment=Perform calculations, analyze information in spreadsheets by using MyOffice Table.
+Comment[ru]=Выполнение вычислений, анализ информации в электронных таблицах с помощью МойОфис Таблица.
+StartupNotify=true
+X-GIO-NoFuse=true
+Keywords=Accounting;Stats;MyOffice Table;OpenOffice;OpenDocument Spreadsheet;Chart;Microsoft Excel;OpenOffice Calc;ods;xls;xlsx;
+InitialPreference=5
+Actions=NewDocument;
+EOF
+
+#cat  > ./myoffice_Presentation.desktop << EOF
+#[Desktop Entry]
+#Version=1.0
+#Terminal=false
+#Icon=myoffice-presentation
+#Type=Application
+#Categories=Office;Presentation;GTK;GNOME;Qt;
+#Exec=myoffice-presentation %f
+#MimeType=application/vnd.oasis.opendocument.presentation;application/mspowerpoint;application/vnd.ms-powerpoint;application/vnd.openxmlformats-officedocument.presentationml.presentation;
+#Name=MyOffice Presentation
+#Name[ru]=МойОфис Презентация
+#Name[en]=MyOffice Presentation
+#GenericName=Presentation
+#GenericName[ru]=Презентация
+#GenericName[en]=Presentation
+#Comment=Create and edit presentations using MyOffice Presentation.
+#Comment[ru]=Создание и редактирование презентаций с использованием МойОфис Презентация.
+#StartupNotify=true
+#X-GIO-NoFuse=true
+#Keywords=Presentation;Document;MyOffice Presentation;OpenDocument Presentation;Microsoft Powerpoint;OpenOffice Impress;odp;ppt;pptx;
+#InitialPreference=5
+#Actions=NewDocument;
+#EOF
+
+cat > ./myoffice_presentetion_editor.desktop << EOF
+[Desktop Entry]
+Name=МойОфис Редактор Презентаций
+GenericName=МойОфис Редактор Презентаций
+Type=Application
+Comment[ru]=Создание и редактирование презентаций для слайдшоу, встреч и веб-страниц
+Exec=/usr/bin/PresentationEditor
+Icon=/usr/local/bin/PresentationEditor/icons/myoffice-pe_256.png
+Terminal=false
+StartupNotify=true
+MimeType=application/vnd.oasis.opendocument.presentation;application/vnd.oasis.opendocument.presentation-template;application/vnd.sun.xml.impress;application/vnd.sun.xml.impress.template;application/mspowerpoint;application/vnd.ms-powerpoint;application/vnd.openxmlformats-officedocument.presentationml.presentation;application/vnd.ms-powerpoint.presentation.macroenabled.12;application/vnd.openxmlformats-officedocument.presentationml.template;application/vnd.ms-powerpoint.template.macroenabled.12;application/vnd.openxmlformats-officedocument.presentationml.slide;application/vnd.openxmlformats-officedocument.presentationml.slideshow;application/vnd.ms-powerpoint.slideshow.macroEnabled.12;application/vnd.oasis.opendocument.presentation-flat-xml;application/x-iwork-keynote-sffkey
+Categories=Office;Presentation;X-Red-Hat-Base;X-MandrivaLinux-Office-Presentations
+Version=1.0
+Keywords=Slideshow;Slides;OpenDocument Presentation;Microsoft PowerPoint;Microsoft Works;OpenOffice Impress;odp;ppt;pptx;Редактор Презентаций;MyOffice;МойОфис;PresentationEditor
+Comment[en]=Create and edit presentations for slideshows, meeting and Web pages by using Presentation Editor.
+InitialPreference=5
+X-GIO-NoFuse=true
+X-KDE-Protocols=file,http,ftp,webdav
+X-Fly-OriginFile=/usr/share/applications/MyOffice_Presentation_Editor_Linux.desktop
+EOF
+
+cat > ./share.desktop << EOF
+[Desktop Entry]
+Name=Сетевая Папка 
+Type=Link
+NoDisplay=false
+Hidden=false
+URL=/mnt
+EOF
+
+cat > ./remmina.desktop << EOF
+[Desktop Entry]
+Name=RDP
+Type=Application
+NoDisplay=false
+Exec=/usr/bin/remmina
+Icon=remmina
+Icon[ru]=remmina
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ./Sputnik_CGP.desktop << EOF
+[Desktop Entry]
+Name=Communigate RPO 
+type=Application
+NoDisplay=false
+Exec=/usr/bin/sputnik-browser http://10.44.0.99
+Icon=sputnik-browser
+Icon[ru]=sputnik-browser
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ./Sputnik_consultant.desktop << EOF
+[Desktop Entry]
+Name=Консультант+
+Type=Application
+NoDisplay=false
+Exec=/usr/bin/sputnik-browser http://www.consultant.ru
+Icon=sputnik-browser
+Icon[ru]=sputnik-browser
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ./Sputnik_garant.desktop << EOF
+[Desktop Entry]
+Name=Гарант
+Type=Application
+NoDisplay=false
+Exec=/usr/bin/sputnik-browser http://ivo.garant.ru
+Icon=sputnik-browser
+Icon[ru]=sputnik-browser
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ./Sputnik_myoffice.desktop << EOF
+[Desktop Entry]
+Name=Мой Офис
+Type=Application
+NoDisplay=false
+Exec=/usr/bin/sputnik-browser https://auth.myoffice-app.ru
+Icon=sputnik-browser
+Icon[ru]=sputnik-browser
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ./Ya_CGP.desktop << EOF
+[Desktop Entry]
+Name=Communigate PRO 
+Type=Application
+NoDisplay=false
+Exec=/usr/bin/yandex-browser http://10.44.0.99
+Icon=yandex-browser-beta
+Icon[ru]=yandex-browser-beta
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ./Ya_consultant.desktop << EOF
+[Desktop Entry]
+Name=Консультант+
+Type=Application
+NoDisplay=false
+Exec=/usr/bin/yandex-browser http://www.consultant.ru
+Icon=yandex-browser-beta
+Icon[ru]=yandex-browser-beta
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ./Ya_garant.desktop << EOF
+[Desktop Entry]
+Name=Гарант
+Type=Application
+NoDisplay=false
+Exec=/usr/bin/yandex-browser http://ivo.garant.ru
+Icon=yandex-browser-beta
+Icon[ru]=yandex-browser-beta
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ./Ya_my.desktop << EOF
+[Desktop Entry]
+Name=Мой Офис
+Type=Application
+NoDisplay=false
+Exec=/usr/bin/yandex-browser https://auth.myoffice-app.ru
+Icon=yandex-browser-beta
+Icon[ru]=yandex-browser-beta
+Hidden=false
+Terminal=false
+StartupNotify=false
+EOF
+
+#fi
+
+# Creat lind REMMINA
+
+[ -d "$remmina_dir" ] || mkdir $remmina_dir
+cd $remmina_dir
+
+[ -f "./15440928710014.remmina" ] || cat > ./15440928710014.remmina << EOF
+[remmina]
+colordepth=24
+shareprinter=1
+sharesmartcard=0
+name=IE
+exec=C:\\Program Files\\Internet Explorer\\iexplore.exe https://softline.ru
+microphone=0
+gateway_server=
+keyboard_grab=0
+execpath=
+gatewaycredentialssource=4
+protocol=RDP
+gatewayprofileusagemethod=0
+gatewayusagemethod=4
+disableclipboard=0
+server=10.44.0.106
+domain=
+password=.
+last_success=20181206
+username=
+window_width=640
+window_maximize=0
+window_height=480
+viewmode=1
+gateway_password=
+sound=off
+sharefolder=
+cert_ignore=0
+console=0
+ssh_enabled=0
+gateway_username=
+clientname=
+loadbalanceinfo=
+postcommand=
+resolution_height=
+group=
+ssh_charset=
+ssh_loopback=0
+quality=9
+ssh_username=
+resolution_width=
+gateway_usage=0
+disableautoreconnect=0
+disablepasswordstoring=0
+security=
+ssh_auth=0
+precommand=
+ssh_server=
+gateway_domain=
+ssh_privatekey=
+EOF
+
+
+
+[ -f "./15440921005388.remmina" ] ||  cat > ./15440921005388.remmina << EOF
+[remmina]
+colordepth=24
+shareprinter=1
+sharesmartcard=0
+name=Notepad
+exec=notepad.exe
+microphone=0
+gateway_server=
+keyboard_grab=0
+execpath=
+gatewaycredentialssource=4
+protocol=RDP
+gatewayprofileusagemethod=0
+gatewayusagemethod=4
+disableclipboard=0
+server=10.44.0.106
+sound=off
+sharefolder=
+cert_ignore=0
+console=0
+ssh_enabled=0
+clientname=
+loadbalanceinfo=
+ssh_auth=0
+postcommand=
+group=
+quality=9
+username=
+ssh_loopback=0
+gateway_password=
+ssh_username=
+password=.
+resolution_width=
+gateway_usage=0
+disableautoreconnect=0
+gateway_username=
+resolution_height=
+security=
+ssh_charset=
+domain=
+disablepasswordstoring=0
+precommand=
+ssh_server=
+gateway_domain=
+ssh_privatekey=
+last_success=20181206
+window_maximize=0
+window_height=480
+window_width=640
+viewmode=1
+EOF
+
+[ -f "./1544092978571.remmina" ] || cat > ./1544092978571.remmina << EOF
+[remmina]
+colordepth=24
+shareprinter=1
+sharesmartcard=0
+name=RDP
+exec=
+microphone=0
+gateway_server=
+keyboard_grab=0
+execpath=
+gatewaycredentialssource=4
+protocol=RDP
+gatewayprofileusagemethod=0
+gatewayusagemethod=4
+disableclipboard=0
+server=10.44.0.106
+sound=off
+sharefolder=
+cert_ignore=0
+console=0
+ssh_enabled=0
+clientname=
+loadbalanceinfo=
+ssh_auth=0
+postcommand=
+group=
+quality=9
+username=
+ssh_loopback=0
+gateway_password=
+ssh_username=
+password=.
+resolution_width=
+gateway_usage=0
+disableautoreconnect=0
+gateway_username=
+resolution_height=
+security=
+ssh_charset=
+domain=
+disablepasswordstoring=0
+precommand=
+ssh_server=
+gateway_domain=
+ssh_privatekey=
+last_success=20181206
+window_maximize=0
+window_height=480
+window_width=640
+viewmode=1
+EOF
+
+cd ~/
+

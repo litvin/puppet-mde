@@ -49,10 +49,13 @@ class mde (
  Array[String] $package_name_wget  = $::mde::params::package_name_wget,
  Array[String] $package_name_local = $::mde::params::package_name_wget,
  String $package_ensure            = $::mde::params::package_ensure,
+ String $run_script_link 	   = $::mde::params::run_script_link,
+ String $run_script_xdg 	   = $::mde::params::run_script_xdg,
 
 ) inherits ::mde::params {
 
   class { '::mde::downloads': }
   -> class { '::mde::install': }
+  -> class {'::mde:link': }
 
 }

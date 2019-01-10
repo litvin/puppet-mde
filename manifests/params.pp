@@ -4,4 +4,6 @@ class mde::params {
 	$package_name_wget = [ 'chromium-gost-stable', 'myofficemail', 'myoffice', 'myoffice-presentation-editor-linux', 'sputnik-browser-stable', 'yandex-browser-beta' ]
 	$package_ensure    = 'present'
         $ftp_server_name   = 'ftp://astra.am.local/install'
+	$run_script_link   = 'LinkAstraCE.sh'
+	$run_script_xdg    = 'link-desktop.desktop'
 }
