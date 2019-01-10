@@ -56,6 +56,6 @@ class mde (
 
   class { '::mde::downloads': }
   -> class { '::mde::install': }
-  -> class {'::mde:link': }
+  -> class { '::mde::link': }
 
 }
