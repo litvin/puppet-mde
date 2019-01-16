@@ -7,6 +7,11 @@ class mde::mount(
   String $pub_name 	    = $mde::pub_name,
   String $mount_dir         = $mde::mount_dir,
 ) {
+
+  package { "cifs-utils":
+        ensure   => present 
+	}
+
   mount { "//$share_server_name/$share_pub" :
   	name	=> '/mnt',
 	ensure  => 'mounted',
