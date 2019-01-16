@@ -104,7 +104,7 @@ EOF
 
 # create link
 
-cat > ./1cestart.desktop << EOF
+[ -f "/opt/1C/v8.3/x86_64/1cestart" ] && cat > ./1cestart.desktop << EOF
 [Desktop Entry]
 Name=1C:Enterprise
 Type=Application
@@ -259,7 +259,7 @@ cat > ./Sputnik_CGP.desktop << EOF
 Name=Communigate RPO 
 type=Application
 NoDisplay=false
-Exec=/usr/bin/sputnik-browser http://10.44.0.99
+Exec=/usr/bin/sputnik-browser https://10.44.0.109
 Icon=sputnik-browser
 Icon[ru]=sputnik-browser
 Hidden=false
@@ -311,7 +311,7 @@ cat > ./Ya_CGP.desktop << EOF
 Name=Communigate PRO 
 Type=Application
 NoDisplay=false
-Exec=/usr/bin/yandex-browser http://10.44.0.99
+Exec=/usr/bin/yandex-browser https://10.44.0.109
 Icon=yandex-browser-beta
 Icon[ru]=yandex-browser-beta
 Hidden=false
