@@ -48,12 +48,15 @@ class mde (
  Array[String] $package_name       = $::mde::params::package_name,
  Array[String] $package_name_wget  = $::mde::params::package_name_wget,
  Array[String] $package_name_local = $::mde::params::package_name_wget,
+ String $suffix			   = $::mde::params::suffix,
+ String $install_provider	   = $::mde::params::install_provider, 
+
  String $package_ensure            = $::mde::params::package_ensure,
  String $run_script_link 	   = $::mde::params::run_script_link,
  String $run_script_xdg 	   = $::mde::params::run_script_xdg,
  
  String $mount_username   	   = $mde::params::mount_username,
- String $mount_password     	   = $role::workstation::topPassword,
+ #String $mount_password     	   = $role::workstation::topPassword,
  String $mount_domain     	   = $mde::params::mount_domain,
 
  String $share_server_name	   = $mde::params::share_server_name,
@@ -65,7 +68,7 @@ class mde (
 
   class { '::mde::downloads': }
   -> class { '::mde::install': }
-  -> class { '::mde::link': }
-  class { '::mde::mount': }
+#  -> class { '::mde::link': }
+#  class { '::mde::mount': }
 
 }
