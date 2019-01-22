@@ -57,6 +57,7 @@ class mde (
  
  String $mount_username   	   = $mde::params::mount_username,
  #String $mount_password     	   = $role::workstation::topPassword,
+ String $mount_password     	   = $mde::params::mount_password,
  String $mount_domain     	   = $mde::params::mount_domain,
 
  String $share_server_name	   = $mde::params::share_server_name,
@@ -68,7 +69,7 @@ class mde (
 
   class { '::mde::downloads': }
   -> class { '::mde::install': }
-#  -> class { '::mde::link': }
-#  class { '::mde::mount': }
+  -> class { '::mde::link': }
+  class { '::mde::mount': }
 
 }

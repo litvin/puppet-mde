@@ -24,7 +24,6 @@ class mde::mount(
  	ensure => file,
 	owner  => 0,
  	group  => 0,
-  	content => template("$module_name/smbclient.erb"),
+  	content => template("$module_name/smbclient.erb")
 	}
-
 }
