@@ -4,6 +4,12 @@
 
 remmina_dir="$HOME/.local/share/remmina/";
 
+
+# Install MyOfficeMail
+
+cd ~/ 
+[ -d "MyOfficeMail" ] || sh /tmp/MyOfficeMailSilent.sh
+
 # Create lik position
 
 
@@ -21,7 +27,6 @@ NoDisplay=false
 Hidden=false
 URL=/mnt
 EOF
-
 
 [ -f "/opt/1C/v8.3/x86_64/1cestart" ] && cat > ./1cestart.desktop << EOF
 [Desktop Entry]

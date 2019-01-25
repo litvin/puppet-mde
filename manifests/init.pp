@@ -46,8 +46,10 @@
 class mde (
 
  Array[String] $package_name       = $::mde::params::package_name,
- Array[String] $package_name_wget  = $::mde::params::package_name_wget,
- Array[String] $package_name_local = $::mde::params::package_name_wget,
+ Array[String] $package_name_wget  = $::mde::params::package_name_local,
+ Array[String] $package_name_local = $::mde::params::package_name_local,
+ Array[String] $downloads	   = $::mde::params::downloads,
+
  String $suffix			   = $::mde::params::suffix,
  String $install_provider	   = $::mde::params::install_provider, 
 
@@ -63,6 +65,9 @@ class mde (
  String $share_server_name	   = $mde::params::share_server_name,
  String $pub_name 	   	   = $mde::params::pub_name,
  String $mount_dir        	   = $mde::params::mount_dir,
+
+ String $se_mode        	   = $mde::params::se_mode,
+ String $se_type        	   = $mde::params::se_type,
  
 
 ) inherits ::mde::params {
@@ -71,5 +76,6 @@ class mde (
   -> class { '::mde::install': }
   -> class { '::mde::link': }
   class { '::mde::mount': }
+  class { '::mde::se': }
 
 }
