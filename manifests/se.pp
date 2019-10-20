@@ -8,8 +8,8 @@ class mde::se(
 		    }
 	   'Redhat': {
 		class { selinux:
-		 mode => $se_mode,
-		 type => $se_type,
+		mode => $se_mode,
+		type => $se_type,
             	}
 	    }
 	}

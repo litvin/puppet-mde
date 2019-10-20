@@ -1,0 +1,33 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Encoding=UTF-8
+Name=R7-Office. Organizer
+Name[ru]=Р7-Офис. Органайзер
+Comment=Send and receive mail with R7-Office. Organizer
+Comment[ru]=Читайте и пишите письма в Р7-Офис. Органайзер
+GenericName=Mail Client
+GenericName[ru]=Почтовый клиент
+Keywords=Email;E-mail;Newsgroup;Feed;RSS
+Keywords[ru]=Email;E-mail;Newsgroup;Feed;RSS;почта;письма;новости;фиды
+Exec=organizer %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=r7-org
+Categories=Application;Network;Email;
+MimeType=x-scheme-handler/mailto;application/x-xpinstall;
+StartupNotify=true
+Actions=Compose;Contacts
+
+[Desktop Action Compose]
+Name=Compose New Message
+Name[ru]=Написать письмо
+Exec=organizer -compose
+OnlyShowIn=Messaging Menu;Unity;
+
+[Desktop Action Contacts]
+Name=Contacts
+Name[ru]=Контакты
+
+Exec=organizer -addressbook
+OnlyShowIn=Messaging Menu;Unity;

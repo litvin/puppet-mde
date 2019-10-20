@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#Redos create desktop links
+
+remmina_dir="$HOME/.local/share/remmina/";
+
+
+# Install MyOfficeMail
+
+cd ~/ 
+#[ -d "MyOfficeMail" ] || sh /opt/run/MyOfficeMailSilent.sh
+
+# Create lik position
+
+# Create link desktop
+
+cd ~/Рабочий\ стол/
+cp /opt/run/all/*  ~/Рабочий\ стол
+
+[ -d $remmina_dir ] || mkdir $remmina_dir
+cd $remmina_dir
+
+[ -f "./15440928710014.remmina" ] || cp /opt/run/remmina/15440928710014.remmina ./ 
+[ -f "./1544092978571.remmina" ] || cp /opt/run/remmina/1544092978571.remmina ./ 
+[ -f "./1568096914714.remmina" ] || cp /opt/run/remmina/1568096914714.remmina ./
+
+cd ~/
+

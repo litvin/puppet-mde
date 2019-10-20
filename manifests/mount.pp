@@ -12,18 +12,18 @@ class mde::mount(
         ensure   => present 
 	}
 
-  mount { "//$share_server_name/$share_pub" :
-  	name	=> '/mnt',
-	ensure  => 'mounted',
-  	device  => "//$share_server_name/$pub_name",
-  	fstype  => 'cifs',
-	options => 'credentials=/root/.smbclient',
-	}   
-
   file  { "/root/.smbclient":
  	ensure => file,
 	owner  => 0,
  	group  => 0,
   	content => template("$module_name/smbclient.erb")
 	}
+
+  mount { "//$share_server_name/$share_pub" :
+        name    => '/mnt',
+        ensure  => 'mounted',
+        device  => "//$share_server_name/$pub_name",
+        fstype  => 'cifs',
+        options => 'credentials=/root/.smbclient',
+        }
 }

@@ -56,6 +56,8 @@ class mde (
  String $package_ensure            = $::mde::params::package_ensure,
  String $run_script_link 	   = $::mde::params::run_script_link,
  String $run_script_xdg 	   = $::mde::params::run_script_xdg,
+ Array[String] $link_name_all      = $::mde::params::link_name_all,
+ Array[String] $link_name_remmina  = $::mde::params::link_name_remmina,
  
  String $mount_username   	   = $mde::params::mount_username,
  #String $mount_password     	   = $role::workstation::topPassword,
@@ -71,11 +73,9 @@ class mde (
  
 
 ) inherits ::mde::params {
-
   class { '::mde::downloads': }
   -> class { '::mde::install': }
   -> class { '::mde::link': }
   class { '::mde::mount': }
   class { '::mde::se': }
-
 }

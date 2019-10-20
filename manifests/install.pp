@@ -13,7 +13,7 @@ class mde::install(
 	}
 	
 	$package_name_local.each | $index_local, $value_local | {
-         package { "$value_local":
+        package { "$value_local":
 	           ensure   => $package_ensure,
                    provider => $install_provider,
                    source   => "/tmp/$value_local.$suffix",
