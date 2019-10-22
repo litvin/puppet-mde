@@ -26,4 +26,22 @@ class mde::mount(
         fstype  => 'cifs',
         options => 'credentials=/root/.smbclient',
         }
+
+  package { "pam_mount":
+        ensure   => present
+        }
+
+  file  { "/etc/security/pam_mount.conf.xml":
+        ensure => file,
+        owner  => 0,
+        group  => 0,
+        content => template("$module_name/pam_mount.conf.xml.erb")
+        }
+
+  file  { "/etc/pam.d/password-auth":
+        ensure => file,
+        owner  => 0,
+        group  => 0,
+        content => template("$module_name/password-auth.erb")
+        }
 }

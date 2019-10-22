@@ -25,7 +25,7 @@ case $::osfamily {
 	$run_script_link   = 'LinkAstraCE.sh'
 	    }
     'Redhat': {
-        $link_name_all	   = ['organizer.desktop', 'remmina.desktop', 'Ya_CGP.desktop', 'Ya_exchange.desktop', 'r7-office-desktopeditors.desktop', 'share.desktop', 'Ya_consultant.desktop', 'Ya_garant.desktop' ]
+        $link_name_all	   = ['organizer.desktop', 'remmina.desktop', 'Ya_CGP.desktop', 'Ya_exchange.desktop', 'r7-office-desktopeditors.desktop', 'share.desktop', 'Ya_consultant.desktop', 'Ya_garant.desktop', 'readme.desktop' ]
         $link_name_remmina  = [ '15440928710014.remmina', '1544092978571.remmina', '1568096914714.remmina' ]
         $package_name      = [ 'remmina', 'remmina-plugins-nx.x86_64', 'remmina-plugins-rdp.x86_64', 'remmina-plugins-spice.x86_64', 'remmina-plugins-vnc.x86_64']
 	$downloads = [ 'linux-amd64.tgz' ]
