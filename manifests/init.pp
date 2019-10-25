@@ -67,6 +67,7 @@ class mde (
  String $share_server_name	   = $mde::params::share_server_name,
  String $pub_name 	   	   = $mde::params::pub_name,
  String $mount_dir        	   = $mde::params::mount_dir,
+ Boolean $mount_ensure        	   = true,
 
  String $se_mode        	   = $mde::params::se_mode,
  String $se_type        	   = $mde::params::se_type,
@@ -76,6 +77,10 @@ class mde (
   class { '::mde::downloads': }
   -> class { '::mde::install': }
   -> class { '::mde::link': }
+
+ if $mount_ensure == true {
   class { '::mde::mount': }
+ } 
+
   class { '::mde::se': }
 }
