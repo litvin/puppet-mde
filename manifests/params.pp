@@ -25,11 +25,11 @@ case $::osfamily {
 	$run_script_link   = 'LinkAstraCE.sh'
 	    }
     'Redhat': {
-        $link_name_all	   = ['organizer.desktop', 'remmina.desktop', 'Ya_CGP.desktop', 'Ya_exchange.desktop', 'r7-office-desktopeditors.desktop', 'share.desktop', 'Ya_consultant.desktop', 'Ya_garant.desktop', 'readme.desktop' ]
-        $link_name_remmina  = [ '15440928710014.remmina', '1544092978571.remmina', '1568096914714.remmina' ]
+        $link_name_all	   = ['organizer.desktop', 'remmina.desktop', 'Ya_CGP.desktop', 'Ya_exchange.desktop', 'r7-office-desktopeditors.desktop', 'share.desktop', 'Ya_consultant.desktop', 'Ya_garant.desktop', 'readme.desktop', 'myofficemail.desktop', 'myoffice_Presentation.desktop', 'myoffice_presentetion_editor.desktop','myoffice_table.desktop', 'myoffice_text.desktop']
+        $link_name_remmina  = [ '15440928710014.remmina', '1544092978571.remmina', '1568096914714.remmina']
         $package_name      = [ 'remmina', 'remmina-plugins-nx.x86_64', 'remmina-plugins-rdp.x86_64', 'remmina-plugins-spice.x86_64', 'remmina-plugins-vnc.x86_64']
-	$downloads = [ 'linux-amd64.tgz' ]
-	$package_name_local = [ 'r7-office-organizer', 'r7-office', 'yandex-browser-beta']
+	$downloads = [ 'linux-amd64.tgz', 'MyOfficeMailSilent.sh', 'MyOffice_Standard_Documents_Linux_2019.01.run' ]
+	$package_name_local = [ 'r7-office-organizer', 'r7-office', 'yandex-browser-beta', 'MyOffice_Presentation_Editor_Linux', 'chromium-gost']
 	$suffix		   = 'rpm'
 	$install_provider  = 'yum'
 

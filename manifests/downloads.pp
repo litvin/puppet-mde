@@ -6,10 +6,17 @@ class mde::downloads(
 ){
         include wget
 
+	file { '/opt/distr':
+	    ensure => 'directory',
+	    owner  => 0,
+	    group  => 0,
+	    mode   => '0755',
+	}
+
         $package_name_downloads.each | $index_download, $value_download | {
         wget::fetch { "$value_download":
                       source             => "$ftp_server_name/$value_download.$suffix",
-                      destination        => "/tmp/$value_download.$suffix",
+                      destination        => "/opt/distr/$value_download.$suffix",
                       timeout            => 0,
                       verbose            => true,
                       nocheckcertificate => true,
@@ -23,7 +30,7 @@ class mde::downloads(
 		        $downloads.each | $index_download, $value_download | {
 			        wget::fetch { "$value_download":
                      		source             => "$ftp_server_name/$value_download",
-                     		destination        => "/tmp/$value_download",
+                     		destination        => "/opt/distr/$value_download",
                      		timeout            => 0,
                       		verbose            => true,
                       		nocheckcertificate => true,

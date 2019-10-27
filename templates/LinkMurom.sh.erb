@@ -1,14 +1,13 @@
 #!/bin/bash
 
-#Redos create desktop links
-
+#Redos Murom
+ 
 remmina_dir="$HOME/.local/share/remmina/";
-
 
 # Install MyOfficeMail
 
 cd ~/ 
-#[ -d "MyOfficeMail" ] || sh /opt/run/MyOfficeMailSilent.sh
+[ -d "MyOfficeMail" ] || sh /opt/run/MyOfficeMailSilent.sh
 
 # Create lik position
 
@@ -16,6 +15,8 @@ cd ~/
 
 cd ~/Рабочий\ стол/
 cp /opt/run/all/*  ~/Рабочий\ стол
+
+# Create link remmina
 
 [ -d $remmina_dir ] || mkdir $remmina_dir
 cd $remmina_dir

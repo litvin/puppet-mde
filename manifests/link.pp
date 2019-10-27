@@ -62,4 +62,9 @@ class mde::link(
    }
  }
 
+  file { '/opt/run/MyOfficeMailSilent.sh':
+    ensure => link,
+    target => '/opt/distr/MyOfficeMailSilent.sh',
+  }
+
 }

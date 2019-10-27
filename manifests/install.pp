@@ -16,7 +16,7 @@ class mde::install(
         package { "$value_local":
 	           ensure   => $package_ensure,
                    provider => $install_provider,
-                   source   => "/tmp/$value_local.$suffix",
+                   source   => "/opt/distr/$value_local.$suffix",
                  }
 	}
 }
